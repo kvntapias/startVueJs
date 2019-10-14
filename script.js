@@ -21,7 +21,10 @@ const app = new Vue({
             },
         ],
         nuevaPersona : '',
-        totaledades : 0
+        totaledades : 0,
+
+        fondo : 'bg-warning',
+        color: true
     },
 
     methods : {
