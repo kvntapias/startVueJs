@@ -19,6 +19,32 @@ const app = new Vue({
                 apellidos : "tapias",
                 edad: 11
             },
-        ]
+        ],
+        nuevaPersona : '',
+        totaledades : 0
+    },
+
+    methods : {
+        agregarPersona(){
+            this.personas.push({
+                nombre : this.nuevaPersona,
+                apellidos : this.nuevaPersona,
+                edad : this.nuevaPersona,
+            });
+            this.nuevaPersona = ''
+        },
+        quitarPersona(){
+
+        }
+    },
+
+    computed: {
+        sumarEdades(){
+            this.totaledades = 0;
+            for (persona of this.personas) {
+                this.totaledades += persona.edad;
+            }
+            return this.totaledades;
+        }
     }
 });

@@ -16,13 +16,24 @@
             <li v-for="fruta of frutas">{{ fruta }}</li>
         </ul>
 
+        <!--inputs-->
+        <input type="text" v-model="nuevaPersona" 
+        @keyup.enter="agregarPersona">
+        <button @click="agregarPersona">Agregar persona</button>
+
         <!--listar personas (objects)-->
         <ul>
             <li v-for="persona in personas">
+                <input type="number" v-model.number="persona.edad">
                 <b>{{persona.nombre  + " "+ persona.apellidos }}</b>
                 <span v-if="persona.edad >= 18">Es mayor de edad</span>
+                <span v-else>No Es mayor de edad</span>
+                <button @click="persona.edad++">Sumar</button>
+                <button @click="persona.edad--">Restar</button>
             </li>
         </ul>
+
+        <h3>Total edades : {{sumarEdades}}</h3>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
